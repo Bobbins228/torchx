@@ -16,7 +16,7 @@ from torchx.util.types import none_throws
 
 def argparser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Kueue dist trainer integration test runner."
+        description="Kueue dist trainer integration test runner./"
     )
     parser.add_argument("--container_repo", type=str)
     parser.add_argument(
