@@ -3,8 +3,7 @@ name: KFP Integration Tests
 on:
   push:
     branches:
-      - main
-  pull_request:
+      - dev
 
 jobs:
   kfp-launch:

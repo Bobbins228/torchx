@@ -3,8 +3,7 @@ name: GCP Batch Integration Tests
 on:
   push:
     branches:
-      - main
-  pull_request:
+      - dev
 
 jobs:
   gcpbatch:

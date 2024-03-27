@@ -3,8 +3,7 @@ name: Kubernetes Dist Train Integration Test
 on:
   push:
     branches:
-      - main
-  pull_request:
+      - dev
 
 jobs:
   kubernetes-launch:

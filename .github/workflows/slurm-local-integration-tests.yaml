@@ -3,8 +3,7 @@ name: Slurm Integration Tests
 on:
   push:
     branches:
-      - main
-  pull_request:
+      - dev
 
 env:
   SLURM_VERSION: 21.08.6
