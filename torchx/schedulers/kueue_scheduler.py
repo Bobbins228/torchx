@@ -177,7 +177,6 @@ def app_to_resource(
                     priority_class=priority_class,
                 )
             )
-            task: Dict[str, Any] = {}
             task = {
                 "replicas": 1,
                 "name": name,
