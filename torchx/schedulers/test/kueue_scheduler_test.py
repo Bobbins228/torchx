@@ -29,6 +29,7 @@ from torchx.schedulers.kueue_scheduler import (
 from torchx.specs import AppState
 from torchx.util.role_to_pod import LABEL_INSTANCE_TYPE, role_to_pod
 
+# pyre-ignore[16]
 SKIP_DOCKER: bool = not has_docker()
 
 TEST_KUBE_CONFIG: Dict[str, Any] = {
@@ -105,12 +106,7 @@ class KueueSchedulerTest(unittest.TestCase):
             resource = app_to_resource(
                 app, service_account=None, local_queue="default-kueue"
             )
-            actual_cmd = (
-                # pyre-ignore [16]
-                resource["spec"]["template"]
-                .spec.containers[0]
-                .command
-            )
+            actual_cmd = resource["spec"]["template"].spec.containers[0].command
             expected_cmd = [
                 "main",
                 "--output-path",
@@ -129,7 +125,6 @@ class KueueSchedulerTest(unittest.TestCase):
         )
         self.assertEqual(
             "Never",
-            # pyre-ignore [16]
             resource["spec"]["template"].spec.restart_policy,
         )
         for role in app.roles:
@@ -902,7 +897,7 @@ spec:
         )
 
         # Modify the minAvailable property of each job in the resource
-        for job in resource["spec"]:  # pyre-ignore[16]
+        for job in resource["spec"]:
             if "backoffLimit" not in job:
                 continue
 

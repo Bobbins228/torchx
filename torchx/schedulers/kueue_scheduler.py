@@ -177,6 +177,7 @@ def app_to_resource(
                     priority_class=priority_class,
                 )
             )
+            task: Dict[str, Any] = {}
             task = {
                 "replicas": 1,
                 "name": name,
@@ -397,7 +398,7 @@ class KueueScheduler(DockerWorkspaceMixin, Scheduler[KueueOpts]):
 
         annotations = cfg.get("annotations")
         assert annotations is None or isinstance(
-            annotations, dict
+            annotations, Dict[str, str]
         ), "annotations must be a dict"
 
         resource = app_to_resource(
