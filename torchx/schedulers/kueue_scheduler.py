@@ -397,7 +397,7 @@ class KueueScheduler(DockerWorkspaceMixin, Scheduler[KueueOpts]):
 
         annotations = cfg.get("annotations")
         assert annotations is None or isinstance(
-            annotations, Dict[str, str]
+            annotations, dict
         ), "annotations must be a dict"
 
         resource = app_to_resource(
