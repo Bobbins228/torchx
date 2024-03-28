@@ -907,8 +907,8 @@ spec:
                 continue
 
             resource["spec"]["minAvailable"] = max(  # pyre-ignore[16]
-                0, resource["spec"]["backoffLimit"] - 1
-            ) # pyre-ignore[16]
+                0, resource["spec"]["backoffLimit"] - 1  # pyre-ignore[16]
+            )
 
         min_available = resource["spec"]["minAvailable"]
 

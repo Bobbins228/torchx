@@ -196,7 +196,7 @@ def app_to_resource(
         "spec": task,
     }
     if annotations is not None:
-        resource["metadata"]["annotations"] = annotations
+        resource["metadata"]["annotations"] = annotations  # pyre-ignore[16]
     return resource
 
 
@@ -596,7 +596,9 @@ class KueueScheduler(DockerWorkspaceMixin, Scheduler[KueueOpts]):
         else:
             # Sort the list of pods by creation timestamp and get most recent one
             sorted_pods = sorted(
-                pods.items, key=lambda p: str(p.metadata.creation_timestamp), reverse=True
+                pods.items,
+                key=lambda p: str(p.metadata.creation_timestamp),
+                reverse=True,
             )
             most_recent_pod = sorted_pods[0].metadata.name
 
