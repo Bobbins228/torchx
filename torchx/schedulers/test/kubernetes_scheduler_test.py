@@ -4,6 +4,8 @@
 # This source code is licensed under the BSD-style license found in the
 # LICENSE file in the root directory of this source tree.
 
+# pyre-strict
+
 import base64
 import importlib
 import sys
@@ -25,10 +27,9 @@ from torchx.schedulers.kubernetes_scheduler import (
     KubernetesJob,
     KubernetesOpts,
     KubernetesScheduler,
-    LABEL_INSTANCE_TYPE,
-    role_to_pod,
 )
 from torchx.specs import AppState
+from torchx.util.role_to_pod import LABEL_INSTANCE_TYPE, role_to_pod
 
 SKIP_DOCKER: bool = not has_docker()
 

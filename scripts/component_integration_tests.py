@@ -5,6 +5,8 @@
 # This source code is licensed under the BSD-style license found in the
 # LICENSE file in the root directory of this source tree.
 
+# pyre-strict
+
 """
 Kubernetes integration tests.
 """
@@ -60,6 +62,7 @@ def main() -> None:
     if scheduler in (
         "kubernetes",
         "kubernetes_mcad",
+        "kueue",
         "local_docker",
         "aws_batch",
         "lsf",
@@ -93,6 +96,14 @@ def main() -> None:
             "cfg": {
                 "namespace": "torchx-dev",
             },
+        },
+        "kueue": {
+            "providers": [
+                component_provider,
+                examples_app_defs_providers,
+            ],
+            "image": torchx_image,
+            "cfg": {"namespace": "torchx-dev", "local_queue": "torchx-local-queue"},
         },
         "local_cwd": {
             "providers": [

@@ -3,15 +3,14 @@ name: Slurm Integration Tests
 on:
   push:
     branches:
-      - main
-  pull_request:
+      - dev
 
 env:
   SLURM_VERSION: 21.08.6
 
 jobs:
   slurm:
-    runs-on: ubuntu-20.04
+    runs-on: linux.20_04.4x
     permissions:
       id-token: write
       contents: read
